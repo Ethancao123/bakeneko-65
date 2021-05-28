@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:bakeneko-65-pcb-cache
 EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
@@ -197,7 +196,7 @@ D-
 Text GLabel 5750 1750 0    50   Input ~ 0
 D+
 $Comp
-L MCU_Microchip_ATmega:ATmega32U4-AU U2
+L bakeneko-65-pcb-rescue:ATmega32U4-AU-MCU_Microchip_ATmega U2
 U 1 1 5F26004F
 P 2350 5400
 F 0 "U2" H 1500 4550 50  0000 C CNN
@@ -498,7 +497,7 @@ ROW1
 Text GLabel 2950 6800 2    50   Input ~ 0
 ROW2
 $Comp
-L Power_Protection:USBLC6-2SC6 U1
+L bakeneko-65-pcb-rescue:USBLC6-2SC6-Power_Protection U1
 U 1 1 5F25444E
 P 4550 1700
 F 0 "U1" H 4500 2250 50  0000 L CNN
@@ -646,7 +645,57 @@ Text GLabel 2950 6600 2    50   Input ~ 0
 ROW4
 Text GLabel 2950 6500 2    50   Input ~ 0
 ROW3
-NoConn ~ 2950 4000
-NoConn ~ 2950 4100
-NoConn ~ 2950 4200
+Text GLabel 2950 4000 2    50   Input ~ 0
+BleReset
+Text GLabel 2950 4100 2    50   Input ~ 0
+BleCS
+Text GLabel 2950 4200 2    50   Input ~ 0
+BleIRQ
+$Comp
+L Connector_Generic_MountingPin:Conn_01x09_MountingPin AdafruitLEBluetooth1
+U 1 1 60AA66F6
+P 6950 1950
+F 0 "AdafruitLEBluetooth1" H 7038 1914 50  0000 L CNN
+F 1 "Conn_01x09_MountingPin" H 7038 1823 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x09_P2.54mm_Vertical" H 6950 1950 50  0001 C CNN
+F 3 "~" H 6950 1950 50  0001 C CNN
+	1    6950 1950
+	1    0    0    -1  
+$EndComp
+Text GLabel 6750 1850 0    50   Input ~ 0
+BleCS
+Text GLabel 6750 1950 0    50   Input ~ 0
+BleIRQ
+Text GLabel 6750 2150 0    50   Input ~ 0
+BleReset
+$Comp
+L power:GND #PWR?
+U 1 1 60AA59B8
+P 6650 2250
+F 0 "#PWR?" H 6650 2000 50  0001 C CNN
+F 1 "GND" H 6655 2077 50  0000 C CNN
+F 2 "" H 6650 2250 50  0001 C CNN
+F 3 "" H 6650 2250 50  0001 C CNN
+	1    6650 2250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6750 2250 6650 2250
+$Comp
+L power:+5V #PWR?
+U 1 1 60AA8156
+P 6500 2350
+F 0 "#PWR?" H 6500 2200 50  0001 C CNN
+F 1 "+5V" H 6515 2523 50  0000 C CNN
+F 2 "" H 6500 2350 50  0001 C CNN
+F 3 "" H 6500 2350 50  0001 C CNN
+	1    6500 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6750 2400 6500 2400
+Wire Wire Line
+	6500 2350 6500 2400
+Wire Wire Line
+	6750 2400 6750 2350
 $EndSCHEMATC
